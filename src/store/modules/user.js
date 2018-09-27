@@ -1,5 +1,6 @@
 import { logout, getInfo, oauth } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { Message } from 'element-ui'
 
 const user = {
   state: {
@@ -40,10 +41,19 @@ const user = {
 
         oauth(username, userInfo.password).then(response => {
           const data = response.data
-          setToken(data)
-          setToken('admin')
-          commit('SET_TOKEN', 'admin')
-          resolve()
+          if (data.access_token && !data.status) {
+            setToken(data.access_token)
+            // setToken('admin')
+            commit('SET_TOKEN', 'admin')
+            resolve()
+          } else {
+            Message({
+              message: data.message,
+              type: 'error',
+              duration: 3 * 1000
+            })
+            reject(response)
+          }
         }).catch(error => {
           reject(error)
         })

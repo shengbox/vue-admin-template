@@ -16,7 +16,7 @@ export function getInfo(token) {
   return request({
     url: '/user/info',
     method: 'get',
-    params: { token }
+    params: { token: 'admin' }
   })
 }
 
@@ -32,8 +32,16 @@ export function oauth(user, pass) {
     method: 'post',
     url: 'https://api.joyowo.com/cloud-auth/oauth/token',
     headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
     },
+    transformRequest: [function(data) {
+      let ret = ''
+      for (const it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }],
     data: {
       grant_type: 'password',
       username: user,
