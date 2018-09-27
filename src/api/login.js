@@ -1,16 +1,16 @@
 import request from '@/utils/request'
 import axios from 'axios'
 
-// export function login(username, password) {
-//   return request({
-//     url: '/user/login',
-//     method: 'post',
-//     data: {
-//       username,
-//       password
-//     }
-//   })
-// }
+export function login(username, password) {
+  return request({
+    url: '/user/login',
+    method: 'post',
+    data: {
+      username,
+      password
+    }
+  })
+}
 
 export function getInfo(token) {
   return request({
@@ -30,7 +30,7 @@ export function logout() {
 export function oauth(user, pass) {
   var oauth_token = 'https://api.joyowo.com/cloud-auth/oauth/token'
   var basicAuth = 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
-  axios({
+  return axios({
     method: 'post',
     url: oauth_token,
     headers: {
@@ -42,16 +42,12 @@ export function oauth(user, pass) {
       username: user,
       password: pass
     },
-    transformRequest: [
-      data => {
-        return data ? Object.entries(data)
-        .map(item => `${encodeURIComponent(item[0])}=${encodeURIComponent(item[1])}`)
-        .join('&') : ''
+    transformRequest: [function(data) {
+      let ret = ''
+      for (const it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
       }
-    ]
-  }).then(function (response) {
-    return response.data
-  }).catch(function (error) {
-    return Promise.reject(error)
+      return ret
+    }]
   })
 }
