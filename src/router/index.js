@@ -78,7 +78,7 @@ export const constantRouterMap = [
     redirect: '/nested/menu1',
     name: 'Nested',
     meta: {
-      title: 'Nested',
+      title: '招聘管理',
       icon: 'nested'
     },
     children: [

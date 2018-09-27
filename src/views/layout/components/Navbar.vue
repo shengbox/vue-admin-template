@@ -79,12 +79,12 @@ export default {
       .user-avatar {
         width: 40px;
         height: 40px;
-        border-radius: 10px;
+        border-radius: 25px;
       }
       .el-icon-caret-bottom {
         position: absolute;
         right: -20px;
-        top: 25px;
+        top: 15px;
         font-size: 12px;
       }
     }
