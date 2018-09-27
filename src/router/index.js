@@ -67,7 +67,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '社保管理', icon: 'form' }
       }
     ]
   },
@@ -135,7 +135,7 @@ export const constantRouterMap = [
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+        path: 'https://op.joyomm.com',
         meta: { title: '返回老版本', icon: 'link' }
       }
     ]
