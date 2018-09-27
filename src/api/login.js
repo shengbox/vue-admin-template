@@ -28,7 +28,7 @@ export function logout() {
 }
 
 export function oauth(user, pass) {
-  var oauth_token = 'https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin/user/login'
+  var oauth_token = 'https://api.joyowo.com/cloud-auth/oauth/token'
   var basicAuth = 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
   axios({
     method: 'post',
