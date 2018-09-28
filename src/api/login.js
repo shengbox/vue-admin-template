@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import axios from 'axios'
 
 export function login(username, password) {
   return request({
@@ -28,9 +27,9 @@ export function logout() {
 }
 
 export function oauth(user, pass) {
-  return axios({
+  return request({
     method: 'post',
-    url: 'https://api.joyowo.com/cloud-auth/oauth/token',
+    url: '/cloud-auth/oauth/token',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')

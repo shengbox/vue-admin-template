@@ -40,7 +40,7 @@ const user = {
         // })
 
         oauth(username, userInfo.password).then(response => {
-          const data = response.data
+          const data = response
           if (data.access_token && !data.status) {
             setToken(data.access_token)
             // setToken('admin')
