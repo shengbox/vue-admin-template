@@ -14,9 +14,9 @@ export function login(username, password) {
 
 export function getInfo(token) {
   return request({
-    url: '/user/info',
+    url: '/cloud-auth/user',
     method: 'get',
-    params: { token: 'admin' }
+    params: { access_token: token }
   })
 }
 

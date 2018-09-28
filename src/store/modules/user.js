@@ -44,7 +44,7 @@ const user = {
           if (data.access_token && !data.status) {
             setToken(data.access_token)
             // setToken('admin')
-            commit('SET_TOKEN', 'admin')
+            commit('SET_TOKEN', data.access_token)
             resolve()
           } else {
             Message({
@@ -64,14 +64,14 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo(state.token).then(response => {
-          const data = response.data
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
+          const data = response
+          if (data.authorities && data.authorities.length > 0) { // 验证返回的roles是否是一个非空数组
+            commit('SET_ROLES', [data.authorities[0].authority])
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
           commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
+          commit('SET_AVATAR', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif')
           resolve(response)
         }).catch(error => {
           reject(error)
