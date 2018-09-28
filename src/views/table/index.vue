@@ -14,28 +14,33 @@
       </el-table-column>
       <el-table-column label="name">
         <template slot-scope="scope">
-          {{ scope.row.feeStandard }}
+          {{ scope.row.customerName }}
         </template>
       </el-table-column>
       <el-table-column label="Author" width="250" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.productName }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
+      <el-table-column label="Pageviews" width="310" align="center">
         <template slot-scope="scope">
-          {{ scope.row.activateNum }}
+          {{ scope.row.contractCompany }}
         </template>
       </el-table-column>
       <el-table-column class-name="status-col" label="Status" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+          <el-tag :type="scope.row.organizationName | statusFilter">{{ scope.row.organizationName }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="signedUserName" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.signedUserName }}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time"/>
-          <span>{{ scope.row.code }}</span>
+          <span>{{ scope.row.signedTimeString }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -69,7 +74,7 @@ export default {
     fetchData() {
       this.listLoading = true
       getList(this.listQuery).then(response => {
-        this.list = response.data
+        this.list = response.data.records
         this.listLoading = false
       })
     }
