@@ -17,27 +17,12 @@
           {{ scope.row.name }}
         </template>
       </el-table-column>
-      <el-table-column label="Author" width="250" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Pageviews" width="310" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.name }}
-        </template>
-      </el-table-column>
       <el-table-column class-name="status-col" label="Status" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.organizationName | statusFilter">{{ scope.row.organizationName }}</el-tag>
+          <el-tag :type="scope.row.id | statusFilter">{{ scope.row.id }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="signedUserName" width="150" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
+      <el-table-column align="center" prop="created_at" label="Display_time">
         <template slot-scope="scope">
           <i class="el-icon-time"/>
           <span>{{ scope.row.name }}</span>
@@ -54,11 +39,11 @@ export default {
   filters: {
     statusFilter(status) {
       const statusMap = {
-        published: 'success',
-        draft: 'gray',
-        deleted: 'danger'
+        0: 'success',
+        1: 'gray',
+        2: 'danger'
       }
-      return statusMap[status]
+      return statusMap[status % 3]
     }
   },
   data() {
