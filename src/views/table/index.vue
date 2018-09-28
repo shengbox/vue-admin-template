@@ -14,17 +14,17 @@
       </el-table-column>
       <el-table-column label="name">
         <template slot-scope="scope">
-          {{ scope.row.customerName }}
+          {{ scope.row.name }}
         </template>
       </el-table-column>
       <el-table-column label="Author" width="250" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.productName }}</span>
+          <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
       <el-table-column label="Pageviews" width="310" align="center">
         <template slot-scope="scope">
-          {{ scope.row.contractCompany }}
+          {{ scope.row.name }}
         </template>
       </el-table-column>
       <el-table-column class-name="status-col" label="Status" width="110" align="center">
@@ -34,13 +34,13 @@
       </el-table-column>
       <el-table-column label="signedUserName" width="150" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.signedUserName }}</span>
+          <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time"/>
-          <span>{{ scope.row.signedTimeString }}</span>
+          <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -74,7 +74,7 @@ export default {
     fetchData() {
       this.listLoading = true
       getList(this.listQuery).then(response => {
-        this.list = response.data.records
+        this.list = response.data
         this.listLoading = false
       })
     }
