@@ -21,8 +21,12 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
-    method: 'post'
+    url: '/cloud-auth/oauth/token',
+    method: 'delete',
+    headers: {
+      'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
+    },
+    params: { access_token: 'acb1c903-0b16-4341-a9cd-f780c24b964b' }
   })
 }
 
