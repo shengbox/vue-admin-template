@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { getToken } from '@/utils/auth'
 
 export function login(username, password) {
   return request({
@@ -13,7 +14,7 @@ export function login(username, password) {
 
 export function getInfo(token) {
   return request({
-    url: '/cloud-auth/user',
+    url: '/user',
     method: 'get',
     params: { access_token: token }
   })
@@ -21,19 +22,19 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/cloud-auth/oauth/token',
+    url: '/oauth/token',
     method: 'delete',
     headers: {
       'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
     },
-    params: { access_token: 'acb1c903-0b16-4341-a9cd-f780c24b964b' }
+    params: { accessToken: getToken() }
   })
 }
 
 export function oauth(user, pass) {
   return request({
     method: 'post',
-    url: '/cloud-auth/oauth/token',
+    url: '/oauth/token',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
