@@ -12,12 +12,12 @@
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column label="name">
+      <el-table-column label="客户">
         <template slot-scope="scope">
           {{ scope.row.cName }}
         </template>
       </el-table-column>
-      <el-table-column label="productName">
+      <el-table-column label="产品">
         <template slot-scope="scope">
           {{ scope.row.productName }}
         </template>
@@ -27,12 +27,12 @@
           {{ scope.row.productPrice }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column class-name="status-col" label="签约渠道" width="110" align="center">
         <template slot-scope="scope">
           <el-tag :type="scope.row.sourceChannel | statusFilter">{{ scope.row.sourceChannel }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time">
+      <el-table-column align="center" prop="created_at" label="签约时间">
         <template slot-scope="scope">
           <i class="el-icon-time"/>
           <span>{{ scope.row.signedTimeString }}</span>

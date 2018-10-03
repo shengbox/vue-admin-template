@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import { getToken } from '@/utils/auth'
 
 export function login(username, password) {
   return request({
@@ -16,7 +15,7 @@ export function getInfo(token) {
   return request({
     url: '/user',
     method: 'get',
-    params: { access_token: token }
+    params: {}
   })
 }
 
@@ -27,7 +26,7 @@ export function logout() {
     headers: {
       'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
     },
-    params: { accessToken: getToken() }
+    params: {}
   })
 }
 
