@@ -8,3 +8,11 @@ export function getList(params) {
     params: {}
   })
 }
+
+export function getTree(params) {
+  return request({
+    url: '/permission/v1/organization/queryAllList',
+    method: 'post',
+    params: {}
+  })
+}
