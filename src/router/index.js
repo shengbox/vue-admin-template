@@ -38,36 +38,69 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/example',
+    path: '/me',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: '合同', icon: 'example' },
+    redirect: '/me/profile',
+    name: 'Me',
+    meta: { title: '我', icon: 'example' },
     children: [
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: () => import('@/views/me/profile/index'),
+        meta: { title: '个人资料', icon: 'table' }
+      },
+      {
+        path: 'certification',
+        name: 'Certification',
+        component: () => import('@/views/me/certification/index'),
+        meta: { title: '认证信息', icon: 'table' }
+      },
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: '客户', icon: 'table' }
+        meta: { title: '我的简历', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: '组织架构', icon: 'tree' }
+        meta: { title: '我的合同', icon: 'tree' }
+      },
+      {
+        path: 'security',
+        name: 'Security',
+        component: () => import('@/views/me/security/index'),
+        meta: { title: '账号与安全', icon: 'table' }
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/work',
     component: Layout,
+    redirect: '/work/resume',
+    name: 'Work',
+    meta: { title: '工作', icon: 'form' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
+        path: 'resume',
+        name: 'Resume',
         component: () => import('@/views/form/index'),
-        meta: { title: '社保管理', icon: 'form' }
+        meta: { title: '简历管理', icon: 'form' }
+      },
+      {
+        path: 'contract',
+        name: 'Contract',
+        component: () => import('@/views/form/index'),
+        meta: { title: '劳动合同', icon: 'form' }
+      },
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/form/index'),
+        meta: { title: '用户', icon: 'form' }
       }
     ]
   },
@@ -78,7 +111,7 @@ export const constantRouterMap = [
     redirect: '/nested/menu1',
     name: 'Nested',
     meta: {
-      title: '招聘管理',
+      title: '生活',
       icon: 'nested'
     },
     children: [
