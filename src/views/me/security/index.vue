@@ -1,6 +1,13 @@
 <template>
   <div class="app-container">
-    <el-input v-model="form.name"/>
+    <el-row :gutter="20">
+      <el-col :span="4" :offset="8">
+        <el-button type="primary">修改密码</el-button>
+      </el-col>
+      <el-col :span="4">
+        <el-button type="primary">更换手机</el-button>
+      </el-col>
+    </el-row>
   </div>
 </template>
 

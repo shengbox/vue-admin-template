@@ -1,6 +1,12 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
-    <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif" class="user-avatar" style="width: 180px">
+    <el-row type="flex" class="row-bg" justify="center">
+      <el-col :span="14">
+        <div class="grid-content bg-purple">
+          <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/150/h/150" class="user-avatar" style="width: 100px;border-radius: 50px">
+        </div>
+      </el-col>
+    </el-row>
     <el-menu
       :show-timeout="200"
       :default-active="$route.path"
@@ -34,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+  .sidebar-container {
+    background-color: rgb(48, 65, 86);
+  }
+</style>
