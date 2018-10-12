@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-row type="flex" justify="center">
       <el-col :span="18">
-        <h2 style="float: left;">个人认证</h2><img src="http://ism.yonyou.com/appstore/OCS-004/logo/OCS-004.png" style="width: 50px">
+        <h3 style="float: left;">个人认证</h3><img src="http://ism.yonyou.com/appstore/OCS-004/logo/OCS-004.png" style="width: 40px">
       </el-col>
     </el-row>
     <el-row type="flex" justify="center">
@@ -15,14 +15,13 @@
     </el-row>
     <br>
     <el-row type="flex" justify="center">
-      <el-col :span="18">
-        <h2>企业认证</h2>
-      </el-col>
+      <el-col :span="18"><h3>企业认证</h3></el-col>
     </el-row>
     <el-row type="flex" justify="center">
-      <el-col :span="16">
-        公司名称：{{ form.company }}
-      </el-col>
+      <el-col :span="16">公司名称：{{ form.company }}</el-col>
+    </el-row>
+    <el-row type="flex" justify="center">
+      <el-col :span="16">统一社会信用代码：{{ form.company }}</el-col>
     </el-row>
   </div>
 </template>

@@ -87,7 +87,7 @@ export const constantRouterMap = [
       {
         path: 'resume',
         name: 'Resume',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/work/resume/index'),
         meta: { title: '简历管理', icon: 'form' }
       },
       {
