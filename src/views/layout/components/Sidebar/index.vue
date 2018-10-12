@@ -1,10 +1,8 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
-    <el-row type="flex" class="row-bg" justify="center">
-      <el-col :span="14">
-        <div class="grid-content bg-purple">
-          <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/150/h/150" class="user-avatar" style="width: 100px;border-radius: 50px">
-        </div>
+    <el-row type="flex" justify="center">
+      <el-col :span="12">
+        <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/100/h/100" style="border-radius: 50px;">
       </el-col>
     </el-row>
     <el-menu
