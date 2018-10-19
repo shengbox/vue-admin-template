@@ -1,7 +1,8 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <h3 class="title">hr management system</h3>
+      <h3 class="title">Please sign in</h3>
+      <p style="text-align: center;color: #eee;">Signin to manage your account.</p>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -23,6 +24,9 @@
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
+      <el-form-item style="border: 0;background: transparent;">
+        <el-checkbox label="Remember Me" name="type"/>
+      </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
           Sign in
@@ -31,6 +35,9 @@
       <div class="tips">
         <span style="margin-right:20px;"/>
         <span/>
+      </div>
+      <div class="text-center u-divider-wrapper my-3" style="text-align:center !important;">
+        <span class="u-divider u-divider--xs u-divider--text" style="font-size: 0.75rem;color:#eee">OR</span>
       </div>
     </el-form>
   </div>
@@ -107,6 +114,36 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+.u-divider-wrapper {
+  overflow: hidden;
+}
+.u-divider {
+  position: relative;
+  display: inline-block;
+}
+.u-divider--xs::before {
+  margin-right: 0.625rem;
+}
+.u-divider--xs::after {
+  margin-left: 0.625rem;
+}
+.u-divider--xs::before, .u-divider--xs::after {
+  width: 62.4375rem;
+  height: 0.0625rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.u-divider::before {
+  right: 100%;
+}
+.u-divider::before, .u-divider::after {
+  position: absolute;
+  top: 50%;
+  background-color: #d4d7dd;
+  font-size: 0.75rem;
+  content: "";
+}
+
 $bg:#2d3a4b;
 $light_gray:#eee;
 

@@ -1,8 +1,8 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/100/h/100" style="border-radius: 50px;">
+      <el-col :span="24">
+        <img src="https://longbome.oss-cn-hangzhou.aliyuncs.com/img/logo1.png" style="width:100%;">
       </el-col>
     </el-row>
     <el-menu
