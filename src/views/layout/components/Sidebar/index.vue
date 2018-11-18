@@ -1,10 +1,5 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
-    <el-row type="flex" justify="center">
-      <el-col :span="24">
-        <img src="https://longbome.oss-cn-hangzhou.aliyuncs.com/img/logo1.png" style="width:100%;">
-      </el-col>
-    </el-row>
     <el-menu
       :show-timeout="200"
       :default-active="$route.path"

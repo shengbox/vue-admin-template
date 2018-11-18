@@ -13,20 +13,27 @@ export function login(username, password) {
 
 export function getInfo(token) {
   return request({
-    url: '/user',
+    url: '/oauth/user',
     method: 'get',
     params: {}
   })
 }
 
-export function logout() {
+export function logout(token) {
   return request({
-    url: '/oauth/token',
+    url: '/uc/user/token',
     method: 'delete',
     headers: {
-      'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
-    params: {}
+    transformRequest: [function(data) {
+      let ret = ''
+      for (const it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }],
+    data: { token }
   })
 }
 
@@ -36,7 +43,7 @@ export function oauth(user, pass) {
     url: '/oauth/token',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa('crm-wx' + ':' + 'tianwu_crm')
+      'Authorization': 'Basic ' + btoa('little-app' + ':' + 'secret')
     },
     transformRequest: [function(data) {
       let ret = ''
